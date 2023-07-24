@@ -14,7 +14,7 @@
         android:theme="@style/Theme.NfcConnector"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".PlainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

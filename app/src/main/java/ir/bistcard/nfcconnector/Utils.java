@@ -1,5 +1,9 @@
 package ir.bistcard.nfcconnector;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+
 /*
   Created by hotmi on 2/23/2023.
  */
@@ -22,5 +26,14 @@ public class Utils {
         + Character.digit(hexString.charAt(i+1), 16));
     }
     return result;
+  }
+
+
+  public static byte[] convertAsciiToBytes(String input) {
+
+    return input.getBytes(StandardCharsets.US_ASCII);
+  }
+  public static String convertBytesToAscii(byte[] input) {
+      return new String(input, StandardCharsets.US_ASCII);
   }
 }

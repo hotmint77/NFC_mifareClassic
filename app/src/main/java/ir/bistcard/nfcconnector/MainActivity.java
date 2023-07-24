@@ -236,7 +236,6 @@ public class MainActivity extends AppCompatActivity {
   //handle authentication to card
   private boolean authenticateSector(MifareClassic mifareClassic, int sector) throws IOException {
 
-
     if (switchDefaultKey.isChecked()) {
       byte[] defaultKey = MifareClassic.KEY_DEFAULT;
       txtLog.append("defaultKey : \n" +  byteArrayToHexString(defaultKey) + "\n");
@@ -246,8 +245,6 @@ public class MainActivity extends AppCompatActivity {
       } else {
         return mifareClassic.authenticateSectorWithKeyA(sector, defaultKey);
       }
-
-
     } else {
       if (switchKeyB.isChecked()) {
         return mifareClassic.authenticateSectorWithKeyB(sector, KEY_B);
@@ -287,54 +284,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//    try {
-//      mifareClassic.connect();
-////      byte[] defaultKey = MifareClassic.KEY_DEFAULT;
-//      byte[] defaultKey =KEY_A;
-//      boolean isAuthenticated = mifareClassic.authenticateSectorWithKeyA(2, defaultKey);
-//      txtLog.append("isAuthenticated WithKeyB : " + isAuthenticated + "\n");
-//      String block0 = byteArrayToHexString(mifareClassic.readBlock(8));
-//      txtLog.append("block0: \n" + block0 + "\n");
-//      String block1 = byteArrayToHexString(mifareClassic.readBlock(9));
-//      txtLog.append("block1: \n" + block1 + "\n");
-//
-//      String block2 = byteArrayToHexString(mifareClassic.readBlock(10));
-//      txtLog.append("block2: \n" + block2 + "\n");
-//
-//      String block3 = byteArrayToHexString(mifareClassic.readBlock(11));
-//      txtLog.append("block3: \n" + block3 + "\n");
-//
-//      //change sector 1 keys
-//      byte[] sector1_trailer =new byte[16];
-//
-//      // change keys without change access bit keys
-////      System.arraycopy(KEY_A, 0, sector1_trailer, 0, KEY_A.length);
-////      System.arraycopy(DEFAULT_ACCESS_BITS, 0, sector1_trailer, KEY_A.length, DEFAULT_ACCESS_BITS.length);
-////      System.arraycopy(KEY_B, 0, sector1_trailer, DEFAULT_ACCESS_BITS.length+KEY_A.length, KEY_B.length);
-//
-//
-//
-//      // change keys and access bit
-//
-//      System.arraycopy(KEY_A, 0, sector1_trailer, 0, KEY_A.length);
-//      System.arraycopy(ACCESS_BITS, 0, sector1_trailer, KEY_A.length, ACCESS_BITS.length);
-//      System.arraycopy(KEY_B, 0, sector1_trailer, ACCESS_BITS.length+KEY_A.length, KEY_B.length);
-//
-//
-//      txtLog.append("trailer preview: \n" + byteArrayToHexString(sector1_trailer) + "\n");
-//
-//     // mifareClassic.writeBlock(11, sector1_trailer);
-//      mifareClassic.writeBlock(8, sector1_trailer);
-//      String block = byteArrayToHexString(mifareClassic.readBlock(11));
-//      txtLog.append("trailer: \n" + block + "\n");
-//      mifareClassic.close();
-//    } catch (IOException e) {
-//      txtLog.append("IOException: " + e.getMessage() + "\n");
-//
-////      throw new RuntimeException(e);
-//    }
-//
-//
-//  }
   }
 }
